@@ -1,5 +1,25 @@
+<!--
+<h1>博客</h1>
+{% for blog in blogs.all %}
+	{{blog.title}}
+	<br>
+	{{blog.date}}
+	<br>
+	<img src="{{blog.image.url}}" height="20%">
+	<br>
+	{{blog.text}}
+	<br>
+{% endfor %}
+-->
+
 <!doctype html>
 <html lang="en">
+  <style type="text/css">
+  	pre{
+  		white-space:  pre-wrap;
+  		word-wrap: break-word;
+  	}
+  </style>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -52,31 +72,26 @@
 
       <section class="jumbotron text-center">
         <div class="container">
-          <h1 class="jumbotron-heading">Album example</h1>
+          <h1 class="jumbotron-heading">我的博客</h1>
           <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
           <p>
-            <a href="blog" class="btn btn-primary my-2">我的博客</a>
-            <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+            <a href=".." class="btn btn-primary my-2">回到主页</a>
           </p>
         </div>
       </section>
 
-      <div class="album py-5 bg-light">
-        <div class="container">
-          <div class="row">
-          	{% for gallery in gallerys.all %}
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="{{gallery.image.url}}" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">{{gallery.description}}</p>
-                </div>
-              </div>
-            </div>
-            {% endfor %}
-          </div>
-        </div>
+      <div class="container">
+		{% for blog in blogs.all %}
+			<h2><a href="">{{blog.title}}</a></h2>
+			{{blog.date}}
+			<br>
+			<img src="{{blog.image.url}}" height="200px">
+			<br>
+			<pre style="width:750px;">{{blog.short_text}}</pre>
+			<br>
+		{% endfor %}
       </div>
+
 
     </main>
 
