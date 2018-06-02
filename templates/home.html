@@ -2,4 +2,7 @@
 
 {% for gallery in gallerys.all %}
 	{{gallery.description}}
+	<img src="{{gallery.image.url}}" />
+	<br>
 {% endfor %}
+
